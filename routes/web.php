@@ -17,6 +17,12 @@ Route::get('/', function () {
 Route::get('/form', function () {
     return view('form');
 });
+Route::get('/show', function () {
+    return view('show');
+});
+Route::get('/index', function () {
+    return view('index');
+});
 
 Auth::routes();
 

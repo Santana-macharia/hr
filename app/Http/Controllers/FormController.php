@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Form
+use App\Form;
 
 class FormController extends Controller
 {
@@ -14,7 +14,10 @@ class FormController extends Controller
      */
     public function index()
     {
-        //
+        $forms = Form::orderBy('sname','asc')->get();
+       // return $form = Form::where('sname','test')->get();
+        //$forms = DB::select('SELECT * FROM forms');
+        return view('index')->with('forms', $forms);
     }
 
     /**
@@ -73,7 +76,8 @@ class FormController extends Controller
      */
     public function show($id)
     {
-        //
+        $form = Form::find($id);
+        return view('show')->with('form',$form);
     }
 
     /**
